@@ -1,19 +1,31 @@
 package eu.uhk.devschool.shoppinglist.dto;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "shopping_item")
 public class ShoppingItem {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
     private String content;
 
+    @Column
+    @Enumerated(EnumType.STRING)
     private ShoppingItemState state;
 
+    @Column
     private LocalDateTime createdAt;
 
+    @Column
     private short count;
 
+    @ManyToOne
+    @JoinColumn(name="category_id")
     private ShoppingItemCategory category;
 
     public ShoppingItem(String content, short count, ShoppingItemState state) {
@@ -79,5 +91,17 @@ public class ShoppingItem {
 
     public void setCategory(ShoppingItemCategory category) {
         this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingItem{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", state=" + state +
+                ", createdAt=" + createdAt +
+                ", count=" + count +
+                ", category=" + category +
+                '}';
     }
 }
