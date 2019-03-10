@@ -1,15 +1,17 @@
 package eu.uhk.devschool.shoppinglist.dto;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "shopping_item")
 public class ShoppingItem {
 
+    @org.springframework.data.annotation.Id
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private BigInteger id;
 
     @Column
     private String content;
@@ -28,6 +30,14 @@ public class ShoppingItem {
     @JoinColumn(name="category_id")
     private ShoppingItemCategory category;
 
+    public ShoppingItem(BigInteger id, String content, short count, ShoppingItemState state) {
+        this.id = id;
+        this.content = content;
+        this.state = state;
+        this.count = count;
+        createdAt = LocalDateTime.now();
+    }
+
     public ShoppingItem(String content, short count, ShoppingItemState state) {
         this.content = content;
         this.state = state;
@@ -45,11 +55,11 @@ public class ShoppingItem {
     public ShoppingItem() {
     }
 
-    public Long getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
