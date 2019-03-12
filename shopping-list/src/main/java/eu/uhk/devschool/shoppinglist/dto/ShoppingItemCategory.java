@@ -1,8 +1,19 @@
 package eu.uhk.devschool.shoppinglist.dto;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+
 public class ShoppingItemCategory {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column
     private String name;
+
 
     public ShoppingItemCategory() {
     }
@@ -19,4 +30,13 @@ public class ShoppingItemCategory {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }

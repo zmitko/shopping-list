@@ -1,20 +1,32 @@
 package eu.uhk.devschool.shoppinglist.dto;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table (name = "ShoppingItem")
 public class ShoppingItem {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
     private String content;
 
+    @Enumerated(EnumType.STRING)
     private ShoppingItemState state;
 
+    @Column
     private LocalDateTime createdAt;
 
+    @Column
     private short count;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
     private ShoppingItemCategory category;
+
 
     public ShoppingItem(String content, short count, ShoppingItemState state) {
         this.content = content;
