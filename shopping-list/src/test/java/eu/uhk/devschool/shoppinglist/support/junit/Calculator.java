@@ -15,7 +15,11 @@ public class Calculator {
     }
 
     public long divide(long first, long second) {
+        if( second == 0 )
+        {
+            //nulou nelze dělit
+            throw new java.lang.ArithmeticException("Nelze opravdu nelze dělit nulou!!!");
+        }
         return first / second;
     }
-
 }
