@@ -1,45 +1,71 @@
 package eu.uhk.devschool.shoppinglist;
 
-import org.junit.Assert;
+import eu.uhk.devschool.shoppinglist.support.junit.Calculator;
 import org.junit.Test;
 
-import eu.uhk.devschool.shoppinglist.support.junit.Calculator;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class CalculatorUnitTest {
 
-    // TODO: napsat testy na Calculator pouze pomoci jUnit, hotovo
+    // TODO: napsat testy na calculator pouze pomoci jUnit
 
     private Calculator calculator = new Calculator();
 
     @Test
-    public void twoAndThreeIsFive() throws Exception{
-        final long result = calculator.add(10,3);
-        Assert.assertEquals(result , 13);
+    public void twoAndThreeIsFive() {
+        long result = calculator.add(2, 3);
+        assertTrue(result == 5);
     }
 
     @Test
-    public void subtract() throws Exception {
-        final long result = calculator.subtract(25,5);
-        Assert.assertEquals(result , 20);
-       // Assert.assertThat(result, is(20));  import org.hamcrest.Matchers.is;
+    public void twoAndZeroIsTwo() {
+        final long result = calculator.add(2, 0);
+        assertThat(result, is(2L));
     }
 
     @Test
-    public void multiply() throws Exception {
-        final long result = calculator.multiply(5,3);
-        Assert.assertEquals(result , 15);
+    public void twoAndMinusTwoIsZero() {
+        final long result = calculator.add(2, -2);
+        assertThat(result, is(0L));
     }
 
     @Test
-    public void divide() throws Exception {
-        final long result = calculator.divide(100,10);
-        Assert.assertEquals(result , 10);
+    public void threeMinusTwoIsOne() {
+        final long result = calculator.subtract(3, 2);
+        assertThat(result, is(1L));
     }
 
-    // test na dělení nulou
-    @Test(expected = ArithmeticException.class)
-    public void divideByZero() throws Exception {
-        final long result = calculator.divide(2,0);
-        Assert.assertEquals(result , 0);
+    @Test
+
+    public void threeMinusThreeIsZero() {
+        final long result = calculator.subtract(3, 3);
+        assertThat(result, is(0L));
     }
+
+    @Test
+    public void threeMinusMinusThreeIsSix() {
+        final long result = calculator.subtract(3, -3);
+        assertThat(result, is(6L));
+    }
+
+    @Test
+    public void threeXThreeIsNine() {
+        final long result = calculator.multiply(3, 3);
+        assertThat(result, is(9L));
+    }
+
+    @Test
+    public void threeXZeroIsZero() {
+        final long result = calculator.multiply(3, 0);
+        assertThat(result, is(0L));
+    }
+
+    @Test
+    public void threeXMinusThreeIsMinusNine() {
+        final long result = calculator.multiply(3, -3);
+        assertThat(result, is(-9L));
+    }
+
 }

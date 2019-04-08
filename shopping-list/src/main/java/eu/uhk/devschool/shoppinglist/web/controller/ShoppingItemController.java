@@ -13,6 +13,7 @@ import java.util.List;
 import static eu.uhk.devschool.shoppinglist.web.constant.WebConstant.SHOPPING_ITEM_URL;
 import static eu.uhk.devschool.shoppinglist.web.constant.WebConstant.SHOPPING_LIST_URL;
 
+@CrossOrigin
 @RestController
 public class ShoppingItemController {
 
