@@ -65,7 +65,8 @@ export default class TodoList extends Component {
       content: text,
       state: "NEW",
       count: 1,
-      createdAt: new Date().toUTCString()
+      // createdAt: new Date().toUTCString()
+      createdAt: new Date()
     });
     items.push(serverItem);
     this.setState({ items: items });

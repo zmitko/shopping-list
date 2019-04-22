@@ -1,5 +1,10 @@
 package eu.uhk.devschool.shoppinglist.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -18,6 +23,8 @@ public class ShoppingItem {
     @Enumerated(EnumType.STRING)
     private ShoppingItemState state;
 
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @Column
     private LocalDateTime createdAt;
 
@@ -25,7 +32,7 @@ public class ShoppingItem {
     private short count;
 
     @ManyToOne
-    @JoinColumn(name="category_id")
+    @JoinColumn(name = "category_id")
     private ShoppingItemCategory category;
 
     public ShoppingItem(String content, short count, ShoppingItemState state) {
