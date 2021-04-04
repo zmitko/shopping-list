@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 import static eu.uhk.devschool.shoppinglist.web.constant.WebConstant.SHOPPING_ITEM_URL;
@@ -26,6 +27,12 @@ public class ShoppingItemController {
     public List<ShoppingItem> getShoppingList() {
         LOGGER.info("GET request init");
         return shoppingItemService.getAllItems();
+    }
+
+    @GetMapping(path = "/shoppingItemById/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ShoppingItem getShoppingItemById(@PathVariable Long id) {
+        LOGGER.info("Received GET request with id {}", id);
+        return shoppingItemService.getItem(id);
     }
 
     @PostMapping(path = SHOPPING_ITEM_URL, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
