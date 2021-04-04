@@ -45,4 +45,10 @@ public class ShoppingItemController {
         LOGGER.info("Received DELETE request with body {}", shoppingItemId);
         return shoppingItemService.deleteShoppingItem(shoppingItemId);
     }
+
+    @GetMapping(path = "shoppingItemById", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ShoppingItem shoppingItemById(@RequestParam Long id) {
+        LOGGER.info("Received GET request with id param {}", id);
+        return shoppingItemService.ShoppingItemById(id);
+    }
 }

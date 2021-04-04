@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @EnableJpaRepositories(basePackages = "eu.uhk.devschool.shoppinglist")
 public class DbSpringConfiguration {
+
 }
