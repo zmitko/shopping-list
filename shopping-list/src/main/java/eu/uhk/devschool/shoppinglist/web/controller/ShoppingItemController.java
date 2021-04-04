@@ -49,6 +49,6 @@ public class ShoppingItemController {
     @GetMapping(path = "shoppingItemById", consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ShoppingItem shoppingItemById(@RequestParam Long id) {
         LOGGER.info("Received GET request with id param {}", id);
-        return shoppingItemService.ShoppingItemById(id);
+        return shoppingItemService.shoppingItemById(id);
     }
 }

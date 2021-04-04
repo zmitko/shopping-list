@@ -34,5 +34,10 @@ public interface ShoppingItemService {
      */
     ShoppingItem deleteShoppingItem(ShoppingItem shoppingItemId);
 
-    ShoppingItem ShoppingItemById(Long id);
+
+    /**
+     * Returns one {@link eu.uhk.devschool.shoppinglist.dto.ShoppingItem} record.
+     * @param id
+     */
+    ShoppingItem shoppingItemById(Long id);
 }

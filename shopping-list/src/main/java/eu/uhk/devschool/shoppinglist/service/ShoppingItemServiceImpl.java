@@ -61,8 +61,8 @@ public class ShoppingItemServiceImpl implements ShoppingItemService {
     }
 
     @Override
-    public ShoppingItem ShoppingItemById(Long id) {
-        return shoppingItemRepository.getShoppingItemById(id);
+    public ShoppingItem shoppingItemById(Long id) {
+        return shoppingItemRepository.findById(id).get();
     }
 
     @Autowired
