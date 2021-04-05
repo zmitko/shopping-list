@@ -13,6 +13,11 @@ public interface ShoppingItemService {
     List<ShoppingItem> getAllItems();
 
     /**
+     * Method loads one available {@link eu.uhk.devschool.shoppinglist.dto.ShoppingItem} record based on its id.
+     */
+    ShoppingItem getItem(Long id);
+
+    /**
      * Method loads all available {@link eu.uhk.devschool.shoppinglist.dto.ShoppingItem} records by specific category.
      */
     List<ShoppingItem> getItemsByCategory(ShoppingItemCategory category);

@@ -4,6 +4,7 @@ import eu.uhk.devschool.shoppinglist.dto.ShoppingItem;
 import eu.uhk.devschool.shoppinglist.dto.ShoppingItemCategory;
 import eu.uhk.devschool.shoppinglist.dto.ShoppingItemState;
 import eu.uhk.devschool.shoppinglist.exception.ValidationException;
+import eu.uhk.devschool.shoppinglist.exception.ShoppingItemNotFoundException;
 import eu.uhk.devschool.shoppinglist.repository.ShoppingItemRepository;
 import eu.uhk.devschool.shoppinglist.validator.ShoppingItemValidator;
 import eu.uhk.devschool.shoppinglist.validator.ValidationResult;
@@ -29,6 +30,12 @@ public class ShoppingItemServiceImpl implements ShoppingItemService {
         List<ShoppingItem> shoppingItems = shoppingItemRepository.findAll();
         LOGGER.info("#getAllItems method ended");
         return shoppingItems;
+    }
+
+    @Override
+    public ShoppingItem<ShoppingItem> getItem(Long id) {
+        LOGGER.info("#getItem method started with id {}", id);
+        return shoppingItemRepository.findById(id).orElseThrow(() -> new ShoppingItemNotFoundException(id));
     }
 
     @Override
