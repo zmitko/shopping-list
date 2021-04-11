@@ -12,4 +12,5 @@ public interface ShoppingItemRepository extends JpaRepository<ShoppingItem, Long
 
     List<ShoppingItem> getAllByCategory_Name(ShoppingItemCategory category);
 
+    ShoppingItem getShoppingItemById(Long id);
 }
