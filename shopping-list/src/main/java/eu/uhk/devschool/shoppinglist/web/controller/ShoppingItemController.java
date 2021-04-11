@@ -45,4 +45,9 @@ public class ShoppingItemController {
         LOGGER.info("Received DELETE request with body {}", shoppingItemId);
         return shoppingItemService.deleteShoppingItem(shoppingItemId);
     }
+
+    @GetMapping(path="/shoppingItemById/{id}")
+    public ShoppingItem getshoppingItemById(@PathVariable Long ItemId) {
+        return shoppingItemService.getshoppingItemById(ItemId);
+    }
 }

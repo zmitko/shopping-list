@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface ShoppingItemRepository extends JpaRepository<ShoppingItem, Long> {
 
+    Shoppingitem getshoppingItemById (Long ItemId); 
     List<ShoppingItem> getAllByCategory_Name(ShoppingItemCategory category);
-
 }

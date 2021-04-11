@@ -75,4 +75,9 @@ public class ShoppingItemServiceImpl implements ShoppingItemService {
             throw new ValidationException(message);
         }
     }
+
+    @Override
+    public ShoppingItem getshoppingItemById(Long itemId) {
+        return shoppingItemRepository.getshoppingItemById(itemId);
+    }
 }
