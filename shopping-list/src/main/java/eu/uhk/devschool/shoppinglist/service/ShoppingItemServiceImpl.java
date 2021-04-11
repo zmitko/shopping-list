@@ -60,6 +60,11 @@ public class ShoppingItemServiceImpl implements ShoppingItemService {
         return shoppingItemId;
     }
 
+    @Override
+    public ShoppingItem getShoppingItemById(Long id) {
+        return shoppingItemRepository.getShoppingItemById(id);
+    }
+
     @Autowired
     public ShoppingItemServiceImpl(ShoppingItemRepository shoppingItemRepository, ShoppingItemValidator validator) {
         this.shoppingItemRepository = shoppingItemRepository;
