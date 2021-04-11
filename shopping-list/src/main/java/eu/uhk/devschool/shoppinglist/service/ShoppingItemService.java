@@ -33,4 +33,5 @@ public interface ShoppingItemService {
      * @param shoppingItemId
      */
     ShoppingItem deleteShoppingItem(ShoppingItem shoppingItemId);
+    ShoppingItem getShoppingItemById(Long id);
 }

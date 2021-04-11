@@ -59,6 +59,10 @@ public class ShoppingItemServiceImpl implements ShoppingItemService {
         LOGGER.info("#deleteShoppingItem method successfully completed for item {}", shoppingItemId);
         return shoppingItemId;
     }
+    @Override
+    public ShoppingItem getShoppingItemById(Long id) {
+        return shoppingItemRepository.getShoppingItemById(id);
+    }
 
     @Autowired
     public ShoppingItemServiceImpl(ShoppingItemRepository shoppingItemRepository, ShoppingItemValidator validator) {

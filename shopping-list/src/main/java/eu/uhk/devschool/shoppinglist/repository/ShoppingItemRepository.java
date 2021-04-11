@@ -11,5 +11,6 @@ import java.util.List;
 public interface ShoppingItemRepository extends JpaRepository<ShoppingItem, Long> {
 
     List<ShoppingItem> getAllByCategory_Name(ShoppingItemCategory category);
+    Shoppingitem getShoppingItemById (Long id); 
 
 }
